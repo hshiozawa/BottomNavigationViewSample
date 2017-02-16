@@ -3,6 +3,7 @@ package com.hjm.bottomnavigationviewsample.bottomnav;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
+import android.os.Build;
 import android.support.v4.util.Pools;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.view.menu.MenuBuilder;
@@ -19,6 +20,7 @@ public class MyBottomNavigationMenuView extends ViewGroup implements MenuView {
     private final int mActiveItemMaxWidth;
     private final int mItemHeight;
     private final OnClickListener mOnClickListener;
+    private final MyBottomNavigationAnimationHelperBase mAnimationHelper;
     private static final Pools.Pool<MyBottomNavigationItemView> sItemPool =
             new Pools.SynchronizedPool<>(5);
 
@@ -44,7 +46,11 @@ public class MyBottomNavigationMenuView extends ViewGroup implements MenuView {
                 R.dimen.design_bottom_navigation_active_item_max_width);
         mItemHeight = res.getDimensionPixelSize(R.dimen.design_bottom_navigation_height);
 
-        // TODO animation
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            mAnimationHelper = new MyBottomNavigationAnimationHelperIcs();
+        } else {
+            mAnimationHelper = new MyBottomNavigationAnimationHelperBase();
+        }
 
         mOnClickListener = new OnClickListener() {
             @Override
@@ -215,7 +221,7 @@ public class MyBottomNavigationMenuView extends ViewGroup implements MenuView {
             return;
         }
 
-        // TODO animation
+        mAnimationHelper.beginDelayedTransition(this);
 
         mMenu.getItem(newButton).setChecked(true);
 
