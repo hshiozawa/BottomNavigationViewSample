@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">BottomNavigationViewSample</string>
     <string name="hello">Hello!</string>
+    <string name="mail">Mail</string>
+    <string name="map">Map</string>
+    <string name="info">Info</string>
+    <string name="camera">Camera</string>
 </resources>

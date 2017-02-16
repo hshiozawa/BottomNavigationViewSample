@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/camera"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:title="@string/camera" />
+
+    <item
+        android:id="@+id/map"
+        android:icon="@android:drawable/ic_dialog_map"
+        android:title="@string/map" />
+
+    <item
+        android:id="@+id/mail"
+        android:icon="@android:drawable/ic_dialog_email"
+        android:title="@string/mail" />
+
+    <item
+        android:id="@+id/info"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:title="@string/info" />
+
+</menu>
