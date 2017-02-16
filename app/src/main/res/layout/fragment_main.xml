@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
 
-    <android.support.design.widget.BottomNavigationView
+    <com.hjm.bottomnavigationviewsample.bottomnav.MyBottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="56dp"
