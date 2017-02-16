@@ -10,29 +10,39 @@ import android.support.v7.view.menu.SubMenuBuilder;
 import android.view.ViewGroup;
 
 public class MyBottomNavigationPresenter implements MenuPresenter {
+    private MenuBuilder mMenu;
+    private MyBottomNavigationMenuView mMenuView;
+    private boolean mUpdateSuspended = false;
 
     public void setBottomNavigationMenuView(MyBottomNavigationMenuView menuView) {
-
+        mMenuView = menuView;
     }
 
     @Override
     public void initForMenu(Context context, MenuBuilder menu) {
-
+        mMenuView.initialize(mMenu);
+        mMenu = menu;
     }
 
     @Override
     public MenuView getMenuView(ViewGroup root) {
-        return null;
+        return mMenuView;
     }
 
     @Override
     public void updateMenuView(boolean cleared) {
-
+        if (mUpdateSuspended) {
+            return;
+        }
+        if (cleared) {
+            mMenuView.buildMenuView();
+        } else {
+            mMenuView.updateMenuView();
+        }
     }
 
     @Override
     public void setCallback(Callback cb) {
-
     }
 
     @Override
@@ -42,7 +52,6 @@ public class MyBottomNavigationPresenter implements MenuPresenter {
 
     @Override
     public void onCloseMenu(MenuBuilder menu, boolean allMenusAreClosing) {
-
     }
 
     @Override
@@ -62,7 +71,7 @@ public class MyBottomNavigationPresenter implements MenuPresenter {
 
     @Override
     public int getId() {
-        return 0;
+        return -1;
     }
 
     @Override
@@ -75,5 +84,6 @@ public class MyBottomNavigationPresenter implements MenuPresenter {
     }
 
     public void setUpdateSuspended(boolean updateSuspended) {
+        mUpdateSuspended = updateSuspended;
     }
 }
