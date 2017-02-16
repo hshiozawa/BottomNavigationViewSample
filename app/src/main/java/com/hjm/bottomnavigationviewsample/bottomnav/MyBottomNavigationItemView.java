@@ -1,6 +1,7 @@
 package com.hjm.bottomnavigationviewsample.bottomnav;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.view.menu.MenuItemImpl;
@@ -72,5 +73,14 @@ public class MyBottomNavigationItemView extends FrameLayout implements MenuView.
     @Override
     public boolean showsIcon() {
         return false;
+    }
+
+    public void setIconTintList(ColorStateList tint) {
+    }
+
+    public void setTextColor(ColorStateList color) {
+    }
+
+    public void setItemBackground(int background) {
     }
 }
