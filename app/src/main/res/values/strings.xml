@@ -5,4 +5,6 @@
     <string name="map">Map</string>
     <string name="info">Info</string>
     <string name="camera">Camera</string>
+    <string name="error">ERROR</string>
 </resources>
+
