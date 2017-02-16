@@ -22,6 +22,9 @@ public class MyBottomNavigationMenuView extends ViewGroup implements MenuView {
 
     private MyBottomNavigationItemView[] mButtons;
     private int mActiveButton = 0;
+    private ColorStateList mItemIconTint;
+    private ColorStateList mItemTextColor;
+    private int mItemBackgroundRes;
     private int[] mTempChildWidths;
 
     private MyBottomNavigationPresenter mPresenter;
@@ -124,12 +127,33 @@ public class MyBottomNavigationMenuView extends ViewGroup implements MenuView {
     }
 
     public void setIconTintList(ColorStateList tint) {
+        mItemIconTint = tint;
+        if (mButtons == null) {
+            return;
+        }
+        for (MyBottomNavigationItemView item : mButtons) {
+            item.setIconTintList(tint);
+        }
     }
 
     public void setItemTextColor(ColorStateList color) {
+        mItemTextColor = color;
+        if (mButtons == null) {
+            return;
+        }
+        for (MyBottomNavigationItemView item : mButtons) {
+            item.setTextColor(color);
+        }
     }
 
     public void setItemBackgroundRes(int background) {
+        mItemBackgroundRes = background;
+        if (mButtons == null) {
+            return;
+        }
+        for (MyBottomNavigationItemView item : mButtons) {
+            item.setItemBackground(background);
+        }
     }
 
     public void setPresenter(MyBottomNavigationPresenter presenter) {
