@@ -12,6 +12,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hjm.bottomnavigationviewsample.R;
+
 public class MyBottomNavigationMenuView extends ViewGroup implements MenuView {
 
     private final int mActiveItemMaxWidth;
@@ -39,8 +41,8 @@ public class MyBottomNavigationMenuView extends ViewGroup implements MenuView {
         final Resources res = getResources();
 
         mActiveItemMaxWidth = res.getDimensionPixelSize(
-                android.support.design.R.dimen.design_bottom_navigation_active_item_max_width);
-        mItemHeight = res.getDimensionPixelSize(android.support.design.R.dimen.design_bottom_navigation_height);
+                R.dimen.design_bottom_navigation_active_item_max_width);
+        mItemHeight = res.getDimensionPixelSize(R.dimen.design_bottom_navigation_height);
 
         // TODO animation
 

@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.hjm.bottomnavigationviewsample.R;
+
 public class MyBottomNavigationView extends FrameLayout {
 
     private static final int[] CHECKED_STATE_SET = {android.R.attr.state_checked};
@@ -67,32 +69,32 @@ public class MyBottomNavigationView extends FrameLayout {
 
         // Setup custom attributes
         TintTypedArray a = TintTypedArray.obtainStyledAttributes(context, attrs,
-                android.support.design.R.styleable.BottomNavigationView, defStyleAttr,
-                android.support.design.R.style.Widget_Design_BottomNavigationView);
-        if (a.hasValue(android.support.design.R.styleable.BottomNavigationView_itemIconTint)) {
+                R.styleable.BottomNavigationView, defStyleAttr,
+                R.style.Widget_Design_BottomNavigationView);
+        if (a.hasValue(R.styleable.BottomNavigationView_itemIconTint)) {
             mMenuView.setIconTintList(
-                    a.getColorStateList(android.support.design.R.styleable.BottomNavigationView_itemIconTint));
+                    a.getColorStateList(R.styleable.BottomNavigationView_itemIconTint));
         } else {
             mMenuView.setIconTintList(
                     createDefaultColorStateList(android.R.attr.textColorSecondary));
         }
-        if (a.hasValue(android.support.design.R.styleable.BottomNavigationView_itemTextColor)) {
+        if (a.hasValue(R.styleable.BottomNavigationView_itemTextColor)) {
             mMenuView.setItemTextColor(
-                    a.getColorStateList(android.support.design.R.styleable.BottomNavigationView_itemTextColor));
+                    a.getColorStateList(R.styleable.BottomNavigationView_itemTextColor));
         } else {
             mMenuView.setItemTextColor(
                     createDefaultColorStateList(android.R.attr.textColorSecondary));
         }
-        if (a.hasValue(android.support.design.R.styleable.BottomNavigationView_elevation)) {
+        if (a.hasValue(R.styleable.BottomNavigationView_elevation)) {
             ViewCompat.setElevation(this, a.getDimensionPixelSize(
-                    android.support.design.R.styleable.BottomNavigationView_elevation, 0));
+                    R.styleable.BottomNavigationView_elevation, 0));
         }
 
-        int itemBackground = a.getResourceId(android.support.design.R.styleable.BottomNavigationView_itemBackground, 0);
+        int itemBackground = a.getResourceId(R.styleable.BottomNavigationView_itemBackground, 0);
         mMenuView.setItemBackgroundRes(itemBackground);
 
-        if (a.hasValue(android.support.design.R.styleable.BottomNavigationView_menu)) {
-            inflateMenu(a.getResourceId(android.support.design.R.styleable.BottomNavigationView_menu, 0));
+        if (a.hasValue(R.styleable.BottomNavigationView_menu)) {
+            inflateMenu(a.getResourceId(R.styleable.BottomNavigationView_menu, 0));
         }
         a.recycle();
 
@@ -127,7 +129,7 @@ public class MyBottomNavigationView extends FrameLayout {
         ColorStateList baseColor = AppCompatResources.getColorStateList(
                 getContext(), value.resourceId);
         if (!getContext().getTheme().resolveAttribute(
-                android.support.v7.appcompat.R.attr.colorPrimary, value, true)) {
+                R.attr.colorPrimary, value, true)) {
             return null;
         }
         int colorPrimary = value.data;
@@ -153,11 +155,11 @@ public class MyBottomNavigationView extends FrameLayout {
     private void addCompatibilityTopDivider(Context context) {
         View divider = new View(context);
         divider.setBackgroundColor(
-                ContextCompat.getColor(context, android.support.design.R.color.design_bottom_navigation_shadow_color));
+                ContextCompat.getColor(context, R.color.design_bottom_navigation_shadow_color));
         FrameLayout.LayoutParams dividerParams = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 getResources().getDimensionPixelSize(
-                        android.support.design.R.dimen.design_bottom_navigation_shadow_height));
+                        R.dimen.design_bottom_navigation_shadow_height));
         divider.setLayoutParams(dividerParams);
         addView(divider);
     }

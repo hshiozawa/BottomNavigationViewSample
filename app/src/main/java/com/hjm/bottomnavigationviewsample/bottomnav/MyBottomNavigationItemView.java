@@ -18,6 +18,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hjm.bottomnavigationviewsample.R;
+
 public class MyBottomNavigationItemView extends FrameLayout implements MenuView.ItemView {
     public static final int INVALID_ITEM_POSITION = -1;
 
@@ -49,19 +51,19 @@ public class MyBottomNavigationItemView extends FrameLayout implements MenuView.
         super(context, attrs, defStyleAttr);
         final Resources res = getResources();
         int inactiveLabelSize =
-                res.getDimensionPixelSize(android.support.design.R.dimen.design_bottom_navigation_text_size);
+                res.getDimensionPixelSize(R.dimen.design_bottom_navigation_text_size);
         int activeLabelSize = res.getDimensionPixelSize(
-                android.support.design.R.dimen.design_bottom_navigation_active_text_size);
-        mDefaultMargin = res.getDimensionPixelSize(android.support.design.R.dimen.design_bottom_navigation_margin);
+                R.dimen.design_bottom_navigation_active_text_size);
+        mDefaultMargin = res.getDimensionPixelSize(R.dimen.design_bottom_navigation_margin);
         mShiftAmount = inactiveLabelSize - activeLabelSize;
         mScaleUpFactor = 1f * activeLabelSize / inactiveLabelSize;
         mScaleDownFactor = 1f * inactiveLabelSize / activeLabelSize;
 
-        LayoutInflater.from(context).inflate(android.support.design.R.layout.design_bottom_navigation_item, this, true);
-        setBackgroundResource(android.support.design.R.drawable.design_bottom_navigation_item_background);
-        mIcon = (ImageView) findViewById(android.support.design.R.id.icon);
-        mSmallLabel = (TextView) findViewById(android.support.design.R.id.smallLabel);
-        mLargeLabel = (TextView) findViewById(android.support.design.R.id.largeLabel);
+        LayoutInflater.from(context).inflate(R.layout.design_bottom_navigation_item, this, true);
+        setBackgroundResource(R.drawable.design_bottom_navigation_item_background);
+        mIcon = (ImageView) findViewById(R.id.icon);
+        mSmallLabel = (TextView) findViewById(R.id.smallLabel);
+        mLargeLabel = (TextView) findViewById(R.id.largeLabel);
     }
 
     @Override
