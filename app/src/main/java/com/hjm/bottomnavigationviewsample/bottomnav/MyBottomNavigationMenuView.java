@@ -179,9 +179,9 @@ public class MyBottomNavigationMenuView extends ViewGroup implements MenuView {
             mPresenter.setUpdateSuspended(false);
             MyBottomNavigationItemView child = getNewItem();
             mButtons[i] = child;
-            child.setIconTintList(null);
-            child.setTextColor(null);
-            child.setItemBackground(0);
+            child.setIconTintList(mItemIconTint);
+            child.setTextColor(mItemTextColor);
+            child.setItemBackground(mItemBackgroundRes);
             child.initialize((MenuItemImpl) mMenu.getItem(i), 0);
             child.setItemPosition(i);
             child.setOnClickListener(mOnClickListener);
